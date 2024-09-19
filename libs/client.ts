@@ -3,7 +3,6 @@ import {
   MessageOptions,
   IncomingMessage,
   ClientOptions,
-  ConnectionInfo,
   ResponseMessage,
   ReplyFunction,
   WaitForFactory,
