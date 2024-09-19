@@ -1,0 +1,48 @@
+{
+  "name": "realtime-pubsub-client",
+  "version": "0.1.0",
+  "description": "Realtime PubSub client for JavaScript/TypeScript",
+  "main": "dist/libs/index.js",
+  "types": "dist/libs/index.d.ts",
+  "scripts": {
+    "build": "rm -r dist/ && tsc",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "format": "prettier --write \"libs/**/*.ts\" \"test/**/*.ts\"",
+    "test": "c8 node --require ts-node/register --env-file=.env --test ./test/**/*.test.ts",
+    "publish": "npm run lint && npm run test && npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BackendStack21/realtime-pubsub-client.git"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/libs"
+  ],
+  "keywords": [
+    "realtime",
+    "websocket",
+    "client",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Rolando Santamaria Maso <kyberneees@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BackendStack21/realtime-pubsub-client/issues"
+  },
+  "homepage": "https://github.com/BackendStack21/realtime-pubsub-client#readme",
+  "devDependencies": {
+    "bun-types": "^1.1.27",
+    "c8": "^10.1.2",
+    "jsonwebtoken": "^9.0.2",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "reconnecting-websocket": "^4.4.0",
+    "eventemitter2": "^6.4.9"
+  }
+}
