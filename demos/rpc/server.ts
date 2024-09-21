@@ -1,4 +1,8 @@
-import {ConnectionInfo, ReplyFunction} from './../../libs/interfaces'
+import {
+  ConnectionInfo,
+  IncomingMessage,
+  ReplyFunction,
+} from './../../libs/interfaces'
 import {RealtimeClient} from './../../libs'
 import {getAuthToken, config} from './../config'
 
@@ -31,6 +35,14 @@ client.on('secure/inbound.gettime', async (_, reply: ReplyFunction) => {
   console.log('Responding to gettime request...')
 
   await reply(new Date().toISOString(), 'ok').waitForAck()
+})
+
+client.on('secure/inbound.presence', async (message: IncomingMessage) => {
+  if (message.data.payload.status === 'connected') {
+    console.log(`Client ${message.data.client.connectionId} connected...`)
+  } else if (message.data.payload.status === 'disconnected') {
+    console.log(`Client ${message.data.client.connectionId} disconnected...`)
+  }
 })
 
 client.connect()
