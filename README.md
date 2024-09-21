@@ -46,6 +46,7 @@ const APP_ID = 'your-app-id'
 
 const clientOptions: ClientOptions = {
   websocketOptions: {
+    // https://www.npmjs.com/package/reconnecting-websocket#available-options
     maxRetries: 10,
     urlProvider: async () => {
       // Implement getAuthToken according to your auth mechanism
