@@ -34,7 +34,12 @@ client.on('session.started', async (info: ConnectionInfo) => {
 client.on('secure/inbound.gettime', async (_, reply: ReplyFunction) => {
   console.log('Responding to gettime request...')
 
-  await reply(new Date().toISOString(), 'ok').waitForAck()
+  await reply(
+    {
+      time: new Date().toISOString(),
+    },
+    'ok',
+  ).waitForAck()
 })
 
 client.on('secure/inbound.presence', async (message: IncomingMessage) => {
