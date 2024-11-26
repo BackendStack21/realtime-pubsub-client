@@ -10,6 +10,7 @@ const getAuthToken = (
   return jwt.sign(payload, signingKey, {
     algorithm,
     expiresIn: expiresInSeconds,
+    subject: Math.random().toString(36).substring(7),
   })
 }
 
