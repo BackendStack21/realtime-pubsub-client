@@ -74,7 +74,7 @@ client.connect().then(async (info) => {
 
   client
     .send('Hello, Realtime Pub/Sub!')
-    .waitForReply()
+    .waitForAck()
     .catch((err) => {
       console.error('Error:', err) // like: timeout
     })
